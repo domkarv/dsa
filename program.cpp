@@ -1,10 +1,8 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-	cout << "Omkar Date is ready to go with C++ 🚀🚀🚀" << endl;
-
+	cout << "Hello World" << endl;
 	return 0;
 }
