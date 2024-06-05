@@ -1,11 +1,1 @@
-Size of Int      => 4
-Size of Float    => 4
-Size of Double   => 8
-Size of Char     => 1
-Size of Boolean  => 1
-Size of String   => 24
-
-24
-26
-26
-26
+Hello World!
