@@ -1,4 +1,7 @@
 {
+  /**
+  * Requires default command line to be CMD for windows only
+  */
   "version": "2.0.0",
   "tasks": [
     {
