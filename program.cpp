@@ -1,30 +1,61 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/**
- * alias cpp='function _cpp(){ g++ "$1" -o "${1%.*}.exe" && ./"${1%.*}.exe" && rm "${1%.*}.exe"; }; _cpp'
- *    => Add this alias line command to ~/.bash_aliases and source .bash_aliases
- *
- * This is a function called "cpp" that takes file name as input.
- *
- * This is helpful bcoz instead of running this:
- * g++ fileName.cpp -o fileName.exe && ./fileName.exe && rm fileName.exe
- *
- * this alias help you to run only:
- * cpp fileName.cpp
- */
-
-int main() {
-/**
- * This below code has nothing with above alias, we can use this without above alias.
- * This only helps to take input from input.txt file and return output to output.txt file
- */
+void setupIO() {
 #ifndef INPUT_OUTPUT
   freopen("input.txt", "r", stdin);
   freopen("output.txt", "w", stdout);
 #endif
+}
 
-  cout << "Hello World!";
+int main() {
+  setupIO();
+  /* ------- */
+
+  int ROW_LEN, COL_LEN;
+  cin >> ROW_LEN >> COL_LEN;
+
+  for (int i = 0; i < ROW_LEN - 1; i++) {
+
+    for (int j = 0; j < i + 1; j++) {
+      cout << COL_LEN - j << " ";
+    }
+
+    for (int j = 1; j < COL_LEN - i; j++) {
+      cout << COL_LEN - i << " ";
+    }
+
+    for (int j = 1; j < COL_LEN - i; j++) {
+      cout << COL_LEN - i << " ";
+    }
+
+    for (int j = i; j > 0; j--) {
+      cout << COL_LEN - j + 1 << " ";
+    }
+
+    cout << endl;
+  }
+
+  for (int i = 0; i < ROW_LEN; i++) {
+
+    for (int j = 0; j < COL_LEN - i; j++) {
+      cout << COL_LEN - j << " ";
+    }
+
+    for (int j = i; j > 0; j--) {
+      cout << i + 1 << " ";
+    }
+
+    for (int j = i; j > 0; j--) {
+      cout << i + 1 << " ";
+    }
+
+    for (int j = 1; j < COL_LEN - i; j++) {
+      cout << j + i + 1 << " ";
+    }
+
+    cout << endl;
+  }
 
   return 0;
 }
