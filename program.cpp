@@ -414,10 +414,10 @@ void printPattern13(int n) {
 
 void printPattern14(int n) {
 
-  for (int i = 1; i <= n; i++) {
+  for (int i = 0; i < n; i++) {
 
-    for (int j = 1; j <= i; j++) {
-      cout << char(65 + j - 1) << " ";
+    for (char ch = 'A'; ch <= 'A' + i; ch++) {
+      cout << ch << " ";
     }
 
     cout << endl;
@@ -437,10 +437,10 @@ void printPattern14(int n) {
 
 void printPattern15(int n) {
 
-  for (int i = 1; i <= n; i++) {
+  for (int i = 0; i < n; i++) {
 
-    for (int j = 1; j <= n - i + 1; j++) {
-      cout << char(65 + j - 1) << " ";
+    for (char ch = 'A'; ch < 'A' + n - i; ch++) {
+      cout << ch << " ";
     }
 
     cout << endl;
@@ -517,11 +517,11 @@ void printPattern17(int n) {
 
 void printPattern18(int n) {
 
-  for (int i = 1; i <= n; i++) {
+  for (int i = 0; i < n; i++) {
 
     int t = i;
-    for (int j = 1; j <= i; j++) {
-      cout << char(65 + n - t--) << " ";
+    for (char ch = ('A' + n - 1) - i; ch <= ('A' + n - 1); ch++) {
+      cout << ch << " ";
     }
 
     cout << endl;
@@ -753,31 +753,15 @@ void printPattern21(int n) {
 
 void printPattern22(int n) {
 
-  for (int i = 1; i <= 2 * n - 1; i++) {
+  for (int i = 0; i < 2 * n - 1; i++) {
 
-    int lfrt = i;
-    int mdl = 2 * n - 2 * i;
+    for (int j = 0; j < 2 * n - 1; j++) {
+      int top = i;
+      int left = j;
+      int bottom = 2 * n - 2 - top;
+      int right = 2 * n - 2 - left;
 
-    if (i > n) {
-      lfrt = n - (i - n);
-      mdl = 2 * n - 2 * (n - (i - n));
-    }
-
-    for (int j = 1; j <= lfrt; j++) {
-      cout << n - j + 1 << " ";
-    }
-
-    for (int j = 1; j <= mdl; j++) {
-      int x = (i > n) ? i - n + 1 : n - i + 1;
-      cout << x << " ";
-    }
-
-    int x = (i > n) ? x = n - (i - n) : i;
-    for (int j = 1; j <= lfrt; j++) {
-      if (j == 1)
-        continue;
-
-      cout << n + 2 - x-- << " ";
+      cout << n - min(min(top, left), min(bottom, right)) << " ";
     }
 
     cout << endl;
