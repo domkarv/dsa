@@ -74,8 +74,7 @@ int main() {
   string str = "I like Gulab jamun.";
   string str2 = "Chocalate";
   int x = str.find("Gulab jamun"); // this is used to find the sub-string.
-  // It return the index where string is found and
-  // if never found then return -1 and show some error
+  // It return the index where string is found else return 'string::npos'
   // cout << x << endl;
 
   /* Replace function */
@@ -85,7 +84,7 @@ int main() {
 
   /* Insert function */
   string str4 = "I like to eat chocalate";
-  str.insert(6, str4, 6, 7); // This will insert some opart of str4 i.e,
+  str.insert(6, str4, 6, 7); // This will insert some part of str4 i.e,
   // 7 characters from index 6 onward
   // str.insert(6, " to eat");  // this takes starting index from where
   // you want to insert string and the string u want to insert

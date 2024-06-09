@@ -17,35 +17,30 @@ int main() {
   setupIO();
   /* ------- */
 
-  int arr[] = {4, 3, 7, 8, 9};
+  string str = {'o', 'm', 'k', 'a', 'r', ' ', 'd', 'a', 't', 'e'};
 
-  int ARR_LEN = sizeof(arr) / sizeof(arr[0]);
+  string val = "date";
 
-  // fill(arr, arr + ARR_LEN, 45);
+  size_t res = str.find(val);
 
-  for (int i = 0; i < ARR_LEN; i++) {
-    cin >> arr[i];
+  if (res == string::npos) {
+    cout << "'" << val << "' not found!";
+  } else {
+    str.replace(res, val.length(), "is 🔥");
   }
 
-  sort(arr, arr + ARR_LEN, [](int a, int b) -> bool {
-    return a < b;
-  });
+  // str.pop_back();
 
-  for_each(arr, arr + ARR_LEN, [](int &x) {
-    x = x * 2;
-  });
+  string str3 = "omkar";
+  string str5 = "omkar";
 
-  for (int i = 0; i < ARR_LEN; i++) {
-    cout << arr[i] << " ";
+  bool flag = str3 == str5;
+
+  if (flag) {
+    cout << "True";
+  } else {
+    cout << "False";
   }
-
-  // for (int i = 0; i < ARR_LEN / 2; i++) {
-  //   swap(arr[i], arr[ARR_LEN - 1 - i]);
-  // }
-
-  // for (int i = 0; i < ARR_LEN; i++) {
-  //   cout << arr[i] << " ";
-  // }
 
   return 0;
 }
