@@ -24,6 +24,10 @@ int main() {
   // we are actually passing address of array to function
   anotherArray(arr, num);
 
+  for_each(arr, arr + sizeOfArray, [](int &val) {
+    val = val * 4;
+  });
+
   // printing array
   for (int i = 0; i < sizeOfArray; i++) {
     cout << arr[i] << " ";
@@ -51,10 +55,12 @@ int main() {
   }
 
   // this will sort your array in increasing order.
-  sort(arr, arr + sizeOfArray);
+  // sort(arr, arr + sizeOfArray);
 
   // this will sort your array in decreasing order.
-  // sort(arr, arr + sizeOfArray, greater<int>());
+  sort(arr, arr + sizeOfArray, [](int a, int b) -> bool {
+    return a < b;
+  });
 
   // printing array
   for (int i = 0; i < sizeOfArray; i++) {

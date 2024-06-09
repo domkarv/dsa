@@ -17,44 +17,35 @@ int main() {
   setupIO();
   /* ------- */
 
-  int r, c;
-  cin >> r >> c;
+  int arr[] = {4, 3, 7, 8, 9};
 
-  int matrix[r][c];
+  int ARR_LEN = sizeof(arr) / sizeof(arr[0]);
 
-  for (int j = 0; j < r; j++) {
-    for (int k = 0; k < c; k++) {
-      cin >> matrix[j][k];
-    }
+  // fill(arr, arr + ARR_LEN, 45);
+
+  for (int i = 0; i < ARR_LEN; i++) {
+    cin >> arr[i];
   }
 
-  int rowStart = 0;
-  int rowEnd = r - 1;
-  int colStart = 0;
-  int colEnd = c - 1;
+  sort(arr, arr + ARR_LEN, [](int a, int b) -> bool {
+    return a < b;
+  });
 
-  while (rowStart <= rowEnd && colStart <= colEnd) {
+  for_each(arr, arr + ARR_LEN, [](int &x) {
+    x = x * 2;
+  });
 
-    for (int i = colStart; i <= colEnd; i++) {
-      cout << matrix[rowStart][i] << " ";
-    }
-    rowStart++;
-
-    for (int i = rowStart; i <= rowEnd; i++) {
-      cout << matrix[i][colEnd] << " ";
-    }
-    colEnd--;
-
-    for (int i = colEnd; i >= colStart; i--) {
-      cout << matrix[rowEnd][i] << " ";
-    }
-    rowEnd--;
-
-    for (int i = rowEnd; i >= rowStart; i--) {
-      cout << matrix[i][colStart] << " ";
-    }
-    colStart++;
+  for (int i = 0; i < ARR_LEN; i++) {
+    cout << arr[i] << " ";
   }
+
+  // for (int i = 0; i < ARR_LEN / 2; i++) {
+  //   swap(arr[i], arr[ARR_LEN - 1 - i]);
+  // }
+
+  // for (int i = 0; i < ARR_LEN; i++) {
+  //   cout << arr[i] << " ";
+  // }
 
   return 0;
 }
