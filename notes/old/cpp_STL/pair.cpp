@@ -5,13 +5,14 @@
 using namespace std;
 int main() {
   // Different ways to initialize pair:
-  pair<int, int> g1;        // default
-  pair<int, int> g2(1, 10); // initialized,  same data type
-  pair<int, int> g3 = {1, 6};
-  pair<int, char> g4(1, 'a'); // initialized,  different data type
-  pair<int, int> g5(g3);      // copy of g3
-  pair<int, int> g6 = make_pair(8, 6);
-  cout << g6.first << endl;
+  pair<int, int> p1;             // default
+  pair<int, int> p2(1, 10);      // initialized,  same data type
+  pair<int, int> p3 = {1, 6};    // initialized,  same data type
+  pair<int, char> p4(1, 'a');    // initialized,  different data type
+  pair<int, char> p7 = {1, 'a'}; // initialized,  different data type
+  pair<int, int> p5(p3);         // copy of p3
+  pair<int, int> p6 = make_pair(8, 6);
+  cout << p6.first << endl;
 
   pair<int, int> p = {4, 6};
   cout << p.first << " " << p.second << endl;
@@ -27,7 +28,8 @@ int main() {
   pair<int, int> g(p);
   cout << g.first << endl;
 
-  g2.swap(p);
+  // swap with another pair
+  p2.swap(p);
   cout << p.first << " " << p.second << endl;
 
   int a, b;
@@ -35,7 +37,7 @@ int main() {
   cout << a << " " << b << endl;
 
   a = 5, b = 9;
-  tie(a, ignore) = g2;
+  tie(a, ignore) = p2;
   cout << a << " " << b << endl;
 
   pair<string, string> st = {"Omkar", "Date"};
@@ -44,7 +46,7 @@ int main() {
   cout << st.first << endl;
 
   // we can concatinate using '+' sign
-  cout << st.first + st2.first << endl;
+  cout << st.first + " " + st2.first << endl;
 
   return 0;
 }

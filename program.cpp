@@ -17,30 +17,21 @@ int main() {
   setupIO();
   /* ------- */
 
-  string str = {'o', 'm', 'k', 'a', 'r', ' ', 'd', 'a', 't', 'e'};
+  // pair<int, pair<int, char>> pr[] = {{23, {43, 'O'}}, {32, {87, 'D'}}};
+  // cout << pr[0].second.second << " " << pr[1].second.second;
 
-  string val = "date";
+  // pair<int, int> pr = {42, 54};
+  // int a, b;
+  // tie(a, b) = pr;
+  // tie(a, b) = pr[0].second;
+  // cout << a << " " << b;
 
-  size_t res = str.find(val);
+  pair<int, int> pr = {54, 76};
+  pair<int, int> pr2 = {43, 90};
 
-  if (res == string::npos) {
-    cout << "'" << val << "' not found!";
-  } else {
-    str.replace(res, val.length(), "is 🔥");
-  }
+  pr.swap(pr2);
 
-  // str.pop_back();
-
-  string str3 = "omkar";
-  string str5 = "omkar";
-
-  bool flag = str3 == str5;
-
-  if (flag) {
-    cout << "True";
-  } else {
-    cout << "False";
-  }
+  cout << pr.first << " " << pr.second;
 
   return 0;
 }
