@@ -1,80 +1,81 @@
-#include <algorithm> // header file for STL algorithms
-#include <iostream>
-#include <string>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-bool boolFun(pair<int, int> p1, pair<int, int> p2) {
-  if (p1.first < p2.first) // increasing order w.r.t first
-    return true;
-  if (p1.first == p2.first) {
-    if (p1.second > p2.second) // if both are same then in decreasing order w.r.t second
-      return true;
-  }
-
-  return false;
-}
-
 int main() {
-  int arr[7] = {5, 6, 9, 8, 4, 2, 3};
-  cout << "Before sorting: " << endl;
-  for (int i : arr) {
-    cout << i << " ";
+  vector<int> vec = {5, 6, 9, 8, -4, 2, 3, 4, 4, 4};
+
+  sort(vec.begin(), vec.end());
+
+  for (auto &&el : vec) {
+    cout << el << " ";
   }
   cout << endl;
 
-  // you can get max/min element of array
-  cout << "Max element of arr: " << *max_element(arr, arr + 7) << endl;
-  cout << "Minimum element of arr: " << *min_element(arr, arr + 7) << endl;
+  /* Decreasing order array */
+  // sort(vec.begin(), vec.end(), [](int a, int b) {
+  //   return a > b;
+  // });
 
-  // this is how we can sort array
-  // here you have to pass the position from where to where you want to sort array
-  // sort(arr, arr + 7);
-  sort(arr + 2, arr + 5);
-  cout << "After sorting: " << endl;
-  for (int i : arr) {
-    cout << i << " ";
-  }
-  cout << endl;
+  // cout << *max_element(vec.begin(), vec.end()) << endl;
+  // cout << *min_element(vec.begin(), vec.end()) << endl;
 
-  sort(arr, arr + 7, greater<int>());
-  cout << "decreasing order: " << endl;
-  for (int i : arr) {
-    cout << i << " ";
-  }
-  cout << endl;
+  /* Return sum of array/vector (need to pass first sum and third parameter) */
+  // cout << accumulate(vec.begin(), vec.end(), 0) << endl;
 
-  vector<int> v = {5, 6, 9, 8, 4, 2, 3};
-  // this is how we can sort vector
-  // here you have to pass the position from where to where you want to sort vector
-  sort(v.begin(), v.end());
-  // sort(v.begin(), v.end(), greater<int>()); // for decreasing order
-  for (int i : v) {
-    cout << i << " ";
-  }
-  cout << endl;
+  /* Return number of copies of a value in a sequence */
+  // cout << count(vec.begin(), vec.end(), 4) << endl;
 
-  // if you you want to decide how elements should be sorted
-  // then there is way to sort it you just want to create a
-  // boolean function satisfying your conditions
-  // see below example of vector of pair
-  vector<pair<int, int>> v2;
-  v2.emplace_back(1, 3);
-  v2.emplace_back(3, 4);
-  v2.emplace_back(1, 8);
-  v2.emplace_back(1, 4);
-  v2.emplace_back(2, 2);
-  v2.emplace_back(5, 3);
-  v2.emplace_back(2, 5);
+  /* Returns iterator to the first element that is equal to the specified value else `vec.end()` */
+  // cout << *find(vec.begin(), vec.end(), 23) << endl;
+  // cout << find(vec.begin(), vec.end(), 23) - vec.begin() << endl; // gives index to that number
 
-  sort(v2.begin(), v2.end(), boolFun);
-  // here boolFun is that function which satisfy your condition
+  // reverse(vec.begin(), vec.end());
+  // for (auto &&el : vec) {
+  //   cout << el << " ";
+  // }
 
-  for (int i = 0; i < v2.size(); i++) {
-    cout << v2[i].first << " " << v2[i].second << endl;
-  }
+  /* Returns true if boolean comparator function is true for each element in the vector/array, and false otherwise */
+  // cout << all_of(vec.begin(), vec.end(), [](int x) {
+  //   return x > 0;
+  // }) << endl;
 
+  /* Returns true if boolean comparator function is true for any element exists in vector/array, and false otherwise. */
+  // cout << any_of(vec.begin(), vec.end(), [](int x) {
+  //   return x > 0;
+  // }) << endl;
+
+  /* Returns true if boolean comparator function is false for each element in the vector/array, and false otherwise */
+  // cout << none_of(vec.begin(), vec.end(), [](int x) {
+  //   return x < 0;
+  // }) << endl;
+
+  /**
+   * binary_search, lower_bound, upper_bound can only be applied sorted array
+   */
+
+  /* Note that this does not actually return an iterator to value. For that, use std::find or a container's specialized find member functions */
+  /* Returns true/false depending on whether the element exists in array/vector */
+  // cout << binary_search(vec.begin(), vec.end(), 7);
+
+  /* Finds the 'first position' in which val could be inserted without changing the order */
+  // cout << lower_bound(vec.begin(), vec.end(), 4) - vec.begin() << endl;
+  // cout << lower_bound(vec.begin(), vec.end(), 7) - vec.begin() << endl;
+  // cout << lower_bound(vec.begin(), vec.end(), 10) - vec.begin() << endl;
+
+  /* Finds the 'last position' in which val could be inserted without changing the order */
+  cout << upper_bound(vec.begin(), vec.end(), 4) - vec.begin() << endl;
+  cout << upper_bound(vec.begin(), vec.end(), 7) - vec.begin() << endl;
+  cout << upper_bound(vec.begin(), vec.end(), 10) - vec.begin() << endl;
+
+  /**
+   * Questions on 'lower_bound' and 'upper_bound'
+   * 1. Find the first occurence of N in sorted array
+   * 2. Find the last occurence of N in sorted array
+   * 3. Find the smallest number larger than N in sorted array
+   * 4. Find the largest number smaller than N in sorted array
+   */
+
+  /* --- */
   cout << __builtin_popcount(3) << endl; // returns set bits
 
   string s = "cab";
