@@ -1,95 +1,53 @@
-#include <iostream>
-#include <list> // header file for STL list
-
-// STL lists are implemented using doubly linked lists
-
+#include <bits/stdc++.h>
 using namespace std;
+
+void printList(list<int> ls) {
+  for (int i : ls) {
+    cout << i << " ";
+  }
+  cout << endl;
+}
+
+/* STL lists are implemented using doubly linked lists */
+
 int main() {
   // In list direct access of element is not possible like vector or deque
 
-  // Note => the brackets used here are round brackets '()' for initialization.
-  // list<int> l(4); // This gives a list of size 4 with all elements being the value of '0'.
-  // for (int i : l)
-  // {
-  //    cout << i << " ";
-  // }
-  // cout << endl;
-  // list<int> l(4, 100); // This gives a list of size 4 with all elements being the value of '100'.
-  // for (int i : l)
-  // {
-  //    cout << i << " ";
-  // }
-  // cout << endl;
+  list<int> ls(4, 100); // This gives a list of size 4 with all elements being the value of '100'
+  // list<int> ls(4);   // This gives a list of size 4 with all elements being the value of '0'
 
-  list<int> l;
-  l.push_front(64);
-  l.emplace_front(14); // emplace_front is faster than push_front
-  l.push_back(56);
-  l.emplace_back(16); // emplace_back is faster than push_back
-  // l.pop_back();
-  // l.pop_front();
-  for (int i : l) {
-    cout << i << " ";
-  }
-  cout << endl;
+  // printList(ls);
 
-  /* ------------------------------------------------------ */
-  /* rest functions are same as vector_(Refer-> vector.cpp) */
-  /*  begin, end, clear, insert, size , swap, emplace, etc  */
-  /* ------------------------------------------------------ */
+  list<int> ls2;
+  ls2.push_front(64);
+  ls2.emplace_front(14); // emplace_front is comparatively faster than push_front
+  ls2.push_back(56);
+  ls2.emplace_back(16); // emplace_back is comparatively faster than push_back
 
-  // cout << "Size of list: " << l.size() << endl;
-  // cout << "Is list is empty: " << l.empty() << endl; // returns true/false (1/0).
-  // cout << "Element at front: " << l.front() << endl;
-  // cout << "Element at end: " << l.back() << endl;
+  // printList(ls2);
 
-  // l.clear(); // This is used to clear the size(all elements) of list
-  // cout << l.size() << endl;
+  ls2.pop_back();
+  ls2.pop_front();
 
-  // // (1)
-  // list<int> a(l);
-  // int j = 0;
-  // for (int i : a)
-  // {
-  //    cout << "a[" << j << "]: " << i << endl;
-  //    j++;
-  // }
+  // printList(ls2);
 
-  // // (2)
-  // list<int> x(4);
-  // // list<int> x(l.size());
-  // copy(l.begin(), l.end(), x.begin()); // This is another way to copy list.
-  // for (int i : x)
-  // {
-  //    cout << i << " ";
-  // }
+  /**
+   * Rest functions are same as vector
+   * begin, end, clear, insert, size, swap, emplace, etc
+   */
 
-  // Swapping
-  // list<int> l2 = {9, 6, 8, 2};
-  // l.swap(l2); // Both are same
-  // // l2.swap(l);
+  list<int> ls3 = {32, 56, 7, 67, 8, 6};
 
-  // cout << "l:" << endl;
-  // for (int i : l)
-  // {
-  //    cout << i << " ";
-  // }
-  // cout << endl;
-  // cout << "l2:" << endl;
-  // for (int i : l2)
-  // {
-  //    cout << i << " ";
-  // }
+  cout << "Size of list: " << ls3.size() << endl;
+  cout << "Is list is empty: " << ls3.empty() << endl; // returns true/false (1/0).
+  cout << "Element at front: " << ls3.front() << endl;
+  cout << "Element at end: " << ls3.back() << endl;
 
-  // insert at position
-  list<int>::iterator itr = l.begin();
-  itr++;
-  itr++;
-  l.emplace(itr, 100);
-  for (int i : l) {
-    cout << i << " ";
-  }
-  cout << endl;
+  /* clears list */
+  ls3.clear();
+  cout << ls3.size() << endl;
+
+  list<int> x(ls3.size());
 
   return 0;
 }
