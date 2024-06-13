@@ -48,5 +48,27 @@ int main() {
   // we can concatinate using '+' sign
   cout << st.first + " " + st2.first << endl;
 
+  /* Tuple */
+  // tuple<string, int> tpl = {"Omkar Date", 20};
+  tuple<string, int, string> tpl = {"Omkar Date", 20, "Engineer"};
+  cout << get<0>(tpl) << " " << get<1>(tpl) << " " << get<2>(tpl) << endl;
+
+  /* Unpack tuple into variables */
+  string name;
+  int age;
+  string occu;
+
+  tie(name, age, occu) = tpl;
+
+  /* Modifying tuples */
+  get<0>(tpl) = "Date Omkar";
+  get<1>(tpl) = 19;
+  get<2>(tpl) = "Developer";
+
+  cout << get<0>(tpl) << " " << get<1>(tpl) << " " << get<2>(tpl);
+
+  /* make_tuple */
+  tuple<int, double, string> myTuple = make_tuple(1, 2.3, "hello");
+
   return 0;
 }
