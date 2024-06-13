@@ -76,17 +76,26 @@ int main() {
    */
 
   /* --- */
-  cout << __builtin_popcount(3) << endl; // returns set bits
+  int num = 34;
+  cout << __builtin_popcount(num) << endl; // returns set bits
+
+  long long num2 = 12345678901245;
+  cout << __builtin_popcountll(num2) << endl; // returns set bits for long long
 
   string s = "cab";
-  sort(s.begin(), s.end()); // you can sort string like this, it will sort every character of string
-
   // next_permutation(s.begin(), s.end()); // will print next permutation of given string
-  cout << s << endl; // first will print sorted string
 
-  // this while loop will print all permutaions of string
-  while (next_permutation(s.begin(), s.end())) // will print all permutations of
+  // this while loop will print all permutations of string only if string is sorted
+  while (next_permutation(s.begin(), s.end())) {
     cout << s << endl;
+  }
+
+  sort(s.begin(), s.end());
+
+  // after sorting
+  while (next_permutation(s.begin(), s.end())) {
+    cout << s << endl;
+  }
 
   return 0;
 }
