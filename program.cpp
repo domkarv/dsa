@@ -13,9 +13,32 @@ void setupIO() {
 }
 /* ------- */
 
+bool isPalindrome(string str, int st) {
+  int en = str.length() - 1 - st;
+
+  if (st >= en) {
+    return true;
+  }
+
+  if (str[st] != str[en]) {
+    return false;
+  }
+
+  return isPalindrome(str, st + 1);
+}
+
 int main() {
   setupIO();
   /* ------- */
+
+  int n;
+  cin >> n;
+
+  while (n--) {
+    string str;
+    cin >> str;
+    cout << isPalindrome(str, 0) << endl;
+  }
 
   return 0;
 }
