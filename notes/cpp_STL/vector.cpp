@@ -9,6 +9,19 @@ void printVector(vector<int> vec) {
 }
 
 int main() {
+  vector<int> v;
+  int input;
+
+  // Read inputs until end-of-file (EOF) or invalid input
+  while (cin >> input) {
+    v.push_back(input);
+  }
+
+  for (auto i : v) {
+    cout << i << " ";
+  }
+
+  /* *** */
   vector<pair<int, int>> vec;
 
   vec.push_back({34, 67});
