@@ -13,36 +13,41 @@ void setupIO() {
 }
 /* ------- */
 
-int gcd(int a, int b) {
-  while (a != 0 && b != 0) {
-    if (a > b)
-      a = a % b;
-    else
-      b = b % a;
-  }
-  return a == 0 ? b : a;
-}
-
-string gcdOfStrings(string str1, string str2) {
-  if (str1 + str2 != str2 + str1)
-    return "";
-
-  return (str1 + str2).substr(0, gcd(str1.length(), str2.length()));
-}
-
 int main() {
   setupIO();
   /* ------- */
 
-  int t;
-  cin >> t;
+  vector<int> n;
+  int input;
 
-  while (t--) {
-    string str1, str2;
-    cin >> str1 >> str2;
-
-    cout << gcdOfStrings(str1, str2) << endl;
+  while (cin >> input) {
+    n.push_back(input);
   }
+
+  cout << "Before: ";
+  for (auto i : n) {
+    cout << i << " ";
+  }
+  cout << endl;
+
+  for (int i = 0; i < n.size() / 2; i++) {
+    /* 1 */
+    // int temp = n[i];
+    // n[i] = n[n.size() - 1 - i];
+    // n[n.size() - 1 - i] = temp;
+
+    /* 2 */
+    swap(n[i], n[n.size() - 1 - i]);
+  }
+
+  /* 3 */
+  reverse(n.begin(), n.end());
+
+  cout << "After: ";
+  for (auto i : n) {
+    cout << i << " ";
+  }
+  cout << endl;
 
   return 0;
 }
