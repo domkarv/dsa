@@ -13,32 +13,31 @@ void setupIO() {
 }
 /* ------- */
 
-bool isPalindrome(string str, int st) {
-  int en = str.length() - 1 - st;
+int fibbo(int n) {
 
-  if (st >= en) {
-    return true;
+  if (n == 1 || n == 2) {
+    return n - 1;
   }
 
-  if (str[st] != str[en]) {
-    return false;
-  }
-
-  return isPalindrome(str, st + 1);
+  return fibbo(n - 1) + fibbo(n - 2);
 }
 
 int main() {
   setupIO();
   /* ------- */
 
-  int n;
+  int n, a = 0, b = 1;
   cin >> n;
 
-  while (n--) {
-    string str;
-    cin >> str;
-    cout << isPalindrome(str, 0) << endl;
+  for (int i = 0; i < n; i++) {
+    cout << a << " ";
+    int temp = a;
+    a = b;
+    b += temp;
   }
+  cout << endl;
+
+  cout << n << "th fibbonacci number: " << fibbo(n) << endl;
 
   return 0;
 }
