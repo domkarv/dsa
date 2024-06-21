@@ -13,31 +13,17 @@ void setupIO() {
 }
 /* ------- */
 
-int fibbo(int n) {
-
-  if (n == 1 || n == 2) {
-    return n - 1;
-  }
-
-  return fibbo(n - 1) + fibbo(n - 2);
-}
-
 int main() {
   setupIO();
   /* ------- */
 
-  int n, a = 0, b = 1;
-  cin >> n;
+  int t;
+  cin >> t;
 
-  for (int i = 0; i < n; i++) {
-    cout << a << " ";
-    int temp = a;
-    a = b;
-    b += temp;
+  while (t--) {
+    int num;
+    cin >> num;
   }
-  cout << endl;
-
-  cout << n << "th fibbonacci number: " << fibbo(n) << endl;
 
   return 0;
 }
