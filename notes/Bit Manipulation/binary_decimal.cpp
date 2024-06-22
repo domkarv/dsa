@@ -53,6 +53,23 @@ int decimalToBinary2(int n) {
   return ans;
 }
 
+/**
+ *    1110 => 14
+ *    1*2^3 + 1*2^2 + 1*2^1 + 0*2^0 => 14
+ */
+
+int binaryToDecimal(int n) {
+  int ans = 0;
+  int i = 0;
+
+  while (n > 0) {
+    ans += ((n % 10) * pow(2, i++));
+    n /= 10;
+  }
+
+  return ans;
+}
+
 int main() {
   int t;
   cin >> t;
