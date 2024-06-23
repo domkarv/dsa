@@ -17,15 +17,28 @@ int main() {
   setupIO();
   /* ------- */
 
-  int a = 5;
-  int b = 3;
-  cout << "Before: " << a << " " << b << endl;
+  int t;
+  cin >> t;
 
-  a = a ^ b;
-  b = a ^ b;
-  a = a ^ b;
+  while (t--) {
+    int n, i;
+    cin >> n >> i;
 
-  cout << "After: " << a << " " << b << endl;
+    int bitmaskLS = n & (1 << i);
+    int bitmaskRS = (n >> i) & 1;
+
+    bitmaskLS == 0
+        ? cout << 0 << endl
+        : cout << 1 << endl;
+
+    bitmaskRS == 0
+        ? cout << 0 << endl
+        : cout << 1 << endl;
+
+    bitmaskRS == 1
+        ? cout << 1 << endl
+        : cout << 0 << endl;
+  }
 
   return 0;
 }
