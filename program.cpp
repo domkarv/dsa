@@ -17,13 +17,15 @@ int main() {
   setupIO();
   /* ------- */
 
-  int t;
-  cin >> t;
+  int a = 5;
+  int b = 3;
+  cout << "Before: " << a << " " << b << endl;
 
-  while (t--) {
-    int num;
-    cin >> num;
-  }
+  a = a ^ b;
+  b = a ^ b;
+  a = a ^ b;
+
+  cout << "After: " << a << " " << b << endl;
 
   return 0;
 }
