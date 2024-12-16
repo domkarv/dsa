@@ -7,12 +7,8 @@ for (let i = 0; i < n; i++) {
     row += "  ";
   }
 
-  for (let j = 0; j <= i; j++) {
-    row += j + 1 + " ";
-  }
-
-  for (let j = i; j > 0; j--) {
-    row += j + " ";
+  for (let j = 0; j < 2 * i + 1; j++) {
+    row += "* ";
   }
 
   console.log(row);
