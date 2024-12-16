@@ -1,17 +1,12 @@
-/**
- * Kadane's Algorithm - Maximum Subarray Sum
- */
+const n = 4;
 
-let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-
-let maxSum = Number.MIN_SAFE_INTEGER;
-let currSum = 0;
-
-for (let i = 0; i < arr.length; i++) {
-  currSum += arr[i] as number;
-  maxSum = Math.max(maxSum, currSum);
-
-  currSum = currSum < 0 ? 0 : currSum;
+for (let i = 0; i < n; i++) {
+  let row = "";
+  let char = 65;
+  for (let j = 0; j < n; j++) {
+    // row += j + " "; // for numbers
+    // row += "* "; // for star
+    row += String.fromCharCode(char++) + " "; // for alphabates
+  }
+  console.log(row);
 }
-
-console.log(maxSum);
