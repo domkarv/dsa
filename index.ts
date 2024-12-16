@@ -1,11 +1,9 @@
 const n = 5;
 
-let char = 65;
-
 for (let i = 0; i < n; i++) {
   let row = "";
-  for (let j = 0; j <= i; j++) {
-    row += String.fromCodePoint(char++) + " ";
+  for (let j = i; j >= 0; j--) {
+    row += String.fromCodePoint(65 + j) + " ";
   }
   console.log(row);
 }
