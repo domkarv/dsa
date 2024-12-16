@@ -8,8 +8,8 @@ for (let i = 0; i < n; i++) {
   }
 
   for (let j = 0; j < n - i; j++) {
-    // row += i + 1 + " "; // for numbers
-    row += String.fromCodePoint(65 + i) + " "; // for alphabet
+    // row += j + 1 + " "; // for numbers
+    row += String.fromCodePoint(65 + j) + " "; // for alphabet
   }
 
   console.log(row);
