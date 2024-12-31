@@ -1,37 +1,47 @@
-const n = 4;
+/**
+ * Find the maximum element in an array.
+ */
 
-for (let i = 0; i < n; i++) {
-  let row = "";
+const arr = [4, 23, 45, 67, 5, 23, 97];
 
-  for (let j = 0; j < i + 1; j++) {
-    row += "* ";
+let largest = Number.MIN_SAFE_INTEGER;
+
+/* 1 */
+arr.forEach((num) => {
+  if (num > largest) {
+    largest = num;
   }
+});
+console.log(largest);
 
-  for (let j = 0; j < 2 * (n - (i + 1)) - 1; j++) {
-    row += "  ";
+/* 2 */
+arr.find((num) => {
+  if (num > largest) {
+    largest = num;
   }
+});
+console.log(largest);
 
-  for (let j = 0; j < i + 1; j++) {
-    if (j !== n - 1) row += "* ";
+/* 3 */
+for (const num of arr) {
+  if (num > largest) {
+    largest = num;
   }
-
-  console.log(row);
 }
+console.log(largest);
 
-for (let i = 0; i < n - 1; i++) {
-  let row = "";
+/* 4 */
+largest = arr.reduce(
+  // (prev, curr) => (curr > prev ? curr : prev),
+  (prev, curr) => {
+    if (curr > prev) prev = curr;
 
-  for (let j = 0; j < n - i - 1; j++) {
-    row += "* ";
-  }
+    return prev;
+  },
+  Number.MIN_SAFE_INTEGER
+);
+console.log(largest);
 
-  for (let j = 0; j < 2 * (i + 1) - 1; j++) {
-    row += "  ";
-  }
-
-  for (let j = 0; j < n - i - 1; j++) {
-    row += "* ";
-  }
-
-  console.log(row);
-}
+/* 5 */
+largest = Math.max(...arr);
+console.log(largest);
