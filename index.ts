@@ -1,47 +1,50 @@
 /**
- * Find the maximum element in an array.
+ * Find the missing number in an array containing numbers from 0 to n
+ * (LeetCode #268)
  */
 
-const arr = [4, 23, 45, 67, 5, 23, 97];
-
-let largest = Number.MIN_SAFE_INTEGER;
-
 /* 1 */
-arr.forEach((num) => {
-  if (num > largest) {
-    largest = num;
-  }
-});
-console.log(largest);
+// function missingNumber(nums: number[]): number {
+//   nums.sort((a, b) => a - b);
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] !== i) {
+//       return i;
+//     }
+//   }
+//   return nums.length;
+// }
 
 /* 2 */
-arr.find((num) => {
-  if (num > largest) {
-    largest = num;
-  }
-});
-console.log(largest);
+// function missingNumber(nums: number[]): number {
+//   let currSum = nums.reduce((prev, curr) => prev + curr, 0);
+//   let expectedSum = (nums.length * (nums.length + 1)) / 2;
+//   return expectedSum - currSum;
+// }
 
 /* 3 */
-for (const num of arr) {
-  if (num > largest) {
-    largest = num;
+function missingNumber(nums: number[]): number {
+  /**
+   * Calculate XOR of All Indices:
+   *   - We will compute the XOR of all indices from 0 to n.
+   *   - This includes every number that should be present in the array.
+   *
+   * Calculate XOR of Array Elements:
+   *   - We also compute the XOR of all elements present in the array.
+   *
+   * Combine Both Results:
+   *   - Finally, we XOR the two results together.
+   *     The pairs that exist in both the index range and the array will cancel each other out due to the self-cancellation property of XOR,
+   *     leaving only the missing number.
+   */
+
+  let xor = 0;
+  for (let i = 0; i < nums.length; i++) {
+    xor ^= i ^ nums[i];
   }
+  xor ^= nums.length;
+  return xor;
 }
-console.log(largest);
 
-/* 4 */
-largest = arr.reduce(
-  // (prev, curr) => (curr > prev ? curr : prev),
-  (prev, curr) => {
-    if (curr > prev) prev = curr;
+const nums = [9, 6, 4, 2, 3, 5, 7, 0, 1];
 
-    return prev;
-  },
-  Number.MIN_SAFE_INTEGER
-);
-console.log(largest);
-
-/* 5 */
-largest = Math.max(...arr);
-console.log(largest);
+console.log(missingNumber(nums));
