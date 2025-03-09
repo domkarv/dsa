@@ -1,28 +1,28 @@
-/**
- * (LeetCode #)
- */
+function throttling(fn: (...args: any) => void, delay: number) {
+  let lastCall = 0;
 
-let x = 5;
-let y = 10;
-console.log(x, y);
+  return function (...args: any) {
+    let now = Date.now();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  };
+}
 
-/* 1 */
-x = x ^ y; // 5 ^ 10
-y = x ^ y; // 5 ^ 10 ^ 10
-x = x ^ y; // 5 ^ 10 ^ 5
-console.log(x, y); // 10 5
+function sendMessage(str: string) {
+  console.log(str);
+}
 
-/* 2 */
-let temp = x;
-x = y;
-y = temp;
-console.log(x, y); // 5 10
+const sendMessageWithThrottling = throttling(sendMessage, 2000);
 
-/* 3 */
-x = x + y; // 5 + 10 = 15
-y = x - y; // 15 - 10 = 5
-x = x - y; // 15 - 5 = 10
-console.log(x, y); // 10 5
+sendMessageWithThrottling("hii");
+sendMessageWithThrottling("hii 1");
+sendMessageWithThrottling("hii 2");
+sendMessageWithThrottling("hii 3");
+sendMessageWithThrottling("hii 4");
 
-[x, y] = [y, x];
-console.log(x, y); // 5 10
+setTimeout(() => {
+  sendMessageWithThrottling("hii 5");
+}, 1985);
